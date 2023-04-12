@@ -6,22 +6,28 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class Deneme {
 
     @Given("Site adresine gidilir")
-    public void site_adresine_gidilir() {
+    public void siteAdresineGidilir() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
 
     @When("Sayfa basliginin Managementon Schools oldugu dogrulanir")
-    public void sayfa_basliginin_managementon_schools_oldugu_dogrulanir() {
+    public void sayfaBasligininManagementonSchoolsOlduguDogrulanir() {
         Assert.assertEquals(Driver.getDriver().getTitle(), "Managementon Schools");
     }
 
     @Then("Sayfa kapatilir")
-    public void sayfa_kapatilir() {
+    public void sayfaKapatilir() {
         Driver.closeDriver();
+    }
+
+    @When("Vice Dean rolu ile login islemi gerceklestirilir")
+    public void viceDeanRoluIleLoginIslemiGerceklestirilir() {
+        ReusableMethods.login("viceDeanUsername", "viceDeanPassword");
     }
 
 }
