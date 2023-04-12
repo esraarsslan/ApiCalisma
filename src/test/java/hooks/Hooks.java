@@ -7,25 +7,22 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
-import static base_urls.SchoolManagementonBaseUrl.schoolSetUp;
+import static baseurl.BaseURL.setUpBeforeAPI;
 
 public class Hooks {
 
     @Before()
-    public void beforeApi(){
-        schoolSetUp();
+    public void setUp() {
+        setUpBeforeAPI();
     }
 
     @After
-    public void tearDownScenarios(Scenario scenario){
-        System.out.println("After Methodu");
-
+    public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             final byte[] failedScreenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-
-            scenario.attach(failedScreenshot, "image/png", "failed_scenario" + scenario.getName());
-
+            scenario.attach(failedScreenshot, "image/png", "failed_scenario_" + scenario.getName());
             Driver.closeDriver();
         }
     }
+
 }

@@ -8,16 +8,16 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "pretty",
-                "html:target/default-cucumber-reports.html",
+                "html:target/html-reports/cucumber.html",
                 "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedscenarios.txt"
+                "junit:target/xml-reports/cucumber.xml",
+                "rerun:target/failed_scenarios.txt"
         },
-        monochrome=true,
+        monochrome = true,
         features = "@target/failed_scenarios.txt",
-        glue = {"stepdefinitions","hooks"},
+        glue = {"stepdefinitions", "hooks"},
         dryRun = false
-
 )
+
 public class FailedRunner {
 }
