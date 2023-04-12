@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class AuthenticationSchoolManagement {
+public class Authentication {
 
     public static String generateToken(){
 
