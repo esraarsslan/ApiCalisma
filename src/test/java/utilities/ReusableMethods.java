@@ -4,6 +4,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.io.File;
 import java.io.IOException;
@@ -205,4 +207,14 @@ public class ReusableMethods {
 //             document.querySelector(".example").value; -> CSS DEGERI KULLANILABILIR
 //             document.querySelector("#example").value; -> CSS DEGERI KULLANILABILIR
     }
+
+    public static void login(String username, String password) {
+        HomePage homePage = new HomePage();
+        LoginPage loginPage = new LoginPage();
+        homePage.loginButton.click();
+        loginPage.username.sendKeys(ConfigReader.getProperty(username));
+        loginPage.password.sendKeys(ConfigReader.getProperty(password));
+        loginPage.loginButton.click();
+    }
+
 }
