@@ -11,15 +11,15 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    // Login Page -> User Name
+    // LoginAndClose Page -> User Name
     @FindBy(id = "username")
     public WebElement username;
 
-    // Login Page -> Password
+    // LoginAndClose Page -> Password
     @FindBy(id = "password")
     public WebElement password;
 
-    // Login Page -> Login Button
+    // LoginAndClose Page -> LoginAndClose Button
     @FindBy(xpath = "//button[text()='Login']")
     public WebElement loginButton;
 
