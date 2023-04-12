@@ -11,7 +11,7 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    // Home Page -> LoginAndClose Button
+    // Home Page -> Login Button
     @FindBy(xpath = "//a[@href='/login']")
     public WebElement loginButton;
 
