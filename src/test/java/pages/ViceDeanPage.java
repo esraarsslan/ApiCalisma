@@ -6,7 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class ViceDeanPage {
-    public ViceDeanPage () {
+
+    public ViceDeanPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -16,7 +17,7 @@ public class ViceDeanPage {
     @FindBy(xpath = "//a[text()='Teacher Management']")
     public WebElement teacherManagement;
 
-    @FindBy(xpath="//div[@class=' css-1xc3v61-indicatorContainer']")
+    @FindBy(xpath = "//div[@class=' css-1xc3v61-indicatorContainer']")
     public WebElement chooseLessons;
 
     @FindBy(id = "name")
