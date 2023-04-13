@@ -38,4 +38,19 @@ public class ViceDeanPage {
     @FindBy(xpath = "//label[text()='Female']")
     public WebElement genderFemale;
 
+    @FindBy(id = "birthDay")
+    public WebElement birthdayBox;
+
+    @FindBy(id = "ssn")
+    public WebElement ssnBox;
+
+    @FindBy(id = "username")
+    public WebElement usernameBox;
+
+    @FindBy(id = "password")
+    public WebElement passwordBox;
+
+    @FindBy(xpath = "//button[text()='Submit']")
+    public WebElement submitButton;
+
 }
