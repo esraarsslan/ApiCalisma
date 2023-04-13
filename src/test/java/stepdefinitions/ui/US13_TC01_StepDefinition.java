@@ -62,31 +62,38 @@ public class US13_TC01_StepDefinition {
     @When("Gender female secilir")
     public void gender_female_secilir() {
 
+        viceDeanPage.genderFemale.click();
 
     }
     @When("Date Of Birth girilir")
     public void date_of_birth_girilir() {
 
+        viceDeanPage.birthdayBox.sendKeys("09.12.1962"+Keys.ENTER);
 
     }
     @When("Ssn girilir")
     public void ssn_girilir() {
 
+        viceDeanPage.ssnBox.sendKeys("980-19-0493");
 
     }
     @When("User Name girer")
     public void user_name_girer() {
+
+        viceDeanPage.usernameBox.sendKeys("senemOz"+Keys.ENTER);
 
 
     }
     @When("Password girer")
     public void password_girer() {
 
+        viceDeanPage.passwordBox.sendKeys("987654321");
 
     }
     @When("Submit tiklanir")
     public void submit_tiklanir() {
 
+        viceDeanPage.submitButton.click();
 
     }
     @Then("Islemin gerceklestigine dair popUp mesajini goruntuler")
