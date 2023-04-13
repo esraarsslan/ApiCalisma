@@ -40,7 +40,6 @@ Feature: Admin, Deanleri görebilmeli ve silebilmeli
       And Submit butonuna tiklar
       And Edit penceresini kapatir
       Then Dean'in Name bilgisinin guncellendigini dogrular
-defsdfsd
 
 
 
