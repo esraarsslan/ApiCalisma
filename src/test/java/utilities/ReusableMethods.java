@@ -1,5 +1,5 @@
 package utilities;
-
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -11,12 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 public class ReusableMethods {
+    private static WebElement element;
+
     /*HOW DO YOU GET SCREENSHOT?
      * I use getScreenShotAs method to take a screenshot in selenium in my framework
      * I actually store the screenshot with unique name in my framework*/
@@ -38,15 +37,9 @@ public class ReusableMethods {
         return target;
     }
     //========Switching Window=====//
-    public static void switchToWindow(String targetTitle) {
-        String origin = Driver.getDriver().getWindowHandle();
-        for (String handle : Driver.getDriver().getWindowHandles()) {
-            Driver.getDriver().switchTo().window(handle);
-            if (Driver.getDriver().getTitle().equals(targetTitle)) {
-                return;
-            }
-        }
-        Driver.getDriver().switchTo().window(origin);
+    public static void switchToWindow(int windowNumber) {
+        List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());
+        Driver.getDriver().switchTo().window(list.get(windowNumber));
     }
     //========Hover Over=====//
     public static void hover(WebElement element) {
@@ -217,4 +210,118 @@ public class ReusableMethods {
         loginPage.loginButton.click();
     }
 
-}
+    public static void selectFromDropdownByIndex(WebElement element, int index) {
+        Select select = new Select(element);
+        select.selectByIndex(index);
+    }
+
+
+
+    public static void selectFromDropdownByVisibleText(WebElement element, String text) {
+        Select select = new Select(element);
+        select.selectByVisibleText(text);
+    }
+
+    public static String createName() {
+        Faker faker = new Faker();
+        return faker.name().firstName();
+    }
+
+    public static String createSurname() {
+        Faker faker = new Faker();
+        return faker.name().lastName();
+    }
+
+    public static String createBirthPlace() {
+        Faker faker = new Faker();
+        return faker.address().cityName();
+    }
+
+    public static String createEmail() {
+        Faker faker = new Faker();
+        return faker.internet().emailAddress();
+    }
+
+    public static String createPhone() {
+        Faker faker = new Faker();
+        int firstNumberOfThePhone = faker.number().randomDigit();
+        int secondNumberOfThePhone = faker.number().randomDigit();
+        int thirdNumberOfThePhone = faker.number().randomDigit();
+        int fourthNumberOfThePhone = faker.number().randomDigit();
+        int fifthNumberOfThePhone = faker.number().randomDigit();
+        int sixthNumberOfThePhone = faker.number().randomDigit();
+        int seventhNumberOfThePhone = faker.number().randomDigit();
+        int eighthNumberOfThePhone = faker.number().randomDigit();
+        int ninthNumberOfThePhone = faker.number().randomDigit();
+        int tenthNumberOfThePhone = faker.number().randomDigit();
+        String phone = firstNumberOfThePhone +
+                secondNumberOfThePhone +
+                thirdNumberOfThePhone +
+                "-" +
+                fourthNumberOfThePhone +
+                fifthNumberOfThePhone +
+                sixthNumberOfThePhone +
+                "-" +
+                seventhNumberOfThePhone +
+                eighthNumberOfThePhone +
+                ninthNumberOfThePhone +
+                tenthNumberOfThePhone;
+        return phone;
+    }
+
+    public static String createDateOfBirth() {
+        Faker faker = new Faker();
+        int year = faker.number().numberBetween(1958, 2023);
+        int month = faker.number().numberBetween(1, 12);
+        int day = faker.number().numberBetween(1, 28);
+        String dateOfBirth = day + "." + month + "." + year;
+        return dateOfBirth;
+    }
+
+    public static String createSSN() {
+        Faker faker = new Faker();
+        int firstNumberOfThePhone = faker.number().randomDigit();
+        int secondNumberOfThePhone = faker.number().randomDigit();
+        int thirdNumberOfThePhone = faker.number().randomDigit();
+        int fourthNumberOfThePhone = faker.number().randomDigit();
+        int fifthNumberOfThePhone = faker.number().randomDigit();
+        int sixthNumberOfThePhone = faker.number().randomDigit();
+        int seventhNumberOfThePhone = faker.number().randomDigit();
+        int eighthNumberOfThePhone = faker.number().randomDigit();
+        int ninthNumberOfThePhone = faker.number().randomDigit();
+        String phone = firstNumberOfThePhone +
+                secondNumberOfThePhone +
+                thirdNumberOfThePhone +
+                "-" +
+                fourthNumberOfThePhone +
+                fifthNumberOfThePhone +
+                "-" +
+                sixthNumberOfThePhone +
+                seventhNumberOfThePhone +
+                eighthNumberOfThePhone +
+                ninthNumberOfThePhone;
+        return phone;
+    }
+
+    public static String createUserName() {
+        Faker faker = new Faker();
+        return faker.name().username();
+    }
+
+    public static String createFatherName() {
+        Faker faker = new Faker();
+        return faker.name().firstName();
+    }
+
+    public static String createMotherName() {
+        Faker faker = new Faker();
+        return faker.name().firstName();
+    }
+
+    public static String createPassword() {
+        Faker faker = new Faker();
+        return faker.internet().password();
+    }
+
+
+    }

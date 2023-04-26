@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ViceDeanPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US13_TC01_StepDefinition {
@@ -102,4 +101,6 @@ public class US13_TC01_StepDefinition {
 
     }
 
+    public static class US17_StepDefinition {
+    }
 }
